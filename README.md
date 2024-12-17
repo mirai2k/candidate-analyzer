@@ -41,7 +41,7 @@ pnpm install
 
 ### 2. Environment Variables
 
-Create a .env file in the root directory and configure the following **.env.example** file
+Create a .env file in the root directory and configure it like **.env.example** file
 
 ---
 
