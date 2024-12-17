@@ -3,7 +3,6 @@ import { resolve } from "node:path";
 
 import { env } from "../utils/env";
 
-import { fileExists } from "../utils/file-exist";
 import { createPDFBlob } from "../utils/create-pdf-blob";
 
 import type { AppRouter } from "../server";
@@ -32,11 +31,6 @@ async function uploadPDFs() {
     const formData = new FormData();
 
     for (const [key, file] of Object.entries(FILES)) {
-      if (!(await fileExists(file.path))) {
-        console.error(`File not found: ${file.path}`);
-        throw new Error(`Missing file: ${file.name}`);
-      }
-
       console.log(`Processing file: ${file.name}`);
 
       const blob = await createPDFBlob(file.path);
@@ -47,7 +41,7 @@ async function uploadPDFs() {
 
     const response = await trpc.analyzeCandidate.mutate(formData);
 
-    console.log("Canidate analyze:\n");
+    console.log("Canidate analysis:\n");
     console.dir(response, { depth: 10 });
   } catch (error) {
     console.error("Error uploading PDFs:", error);
