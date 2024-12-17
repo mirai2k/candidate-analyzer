@@ -1,7 +1,25 @@
 import { TRPCError } from "@trpc/server";
 import { env } from "./env";
 
-export async function analyzeContents(contents: string[]) {
+type AnalysisResponse = {
+  analysis: {
+    candidate_strengths: string[];
+    candidate_weaknesses: string[];
+    alignment: {
+      skills_match: string[];
+      skills_mismatch: string[];
+      experience_match: string[];
+      experience_mismatch: string[];
+      qualifications_match: string[];
+      qualifications_mismatch: string[];
+    };
+    suitability: string;
+  };
+};
+
+export async function analyzeContents(
+  contents: string[]
+): Promise<AnalysisResponse> {
   const payload = {
     contents: contents.map((content) => ({
       parts: [{ text: content }],
