@@ -1,0 +1,37 @@
+{
+  "name": "candidate-analyzer",
+  "version": "1.0.0",
+  "description": "A Node.js server using tRPC to analyze candidate CVs and job descriptions using Gemini 1.5 Flash.",
+  "scripts": {
+    "server:dev": "ts-node src/server/index.ts",
+    "client:dev": "ts-node src/client/index.ts",
+    "server": "node dist/server/index.js",
+    "client": "node dist/client/index.js",
+    "build": "tsc"
+  },
+  "keywords": [
+    "Node.js",
+    "tRPC",
+    "AI"
+  ],
+  "author": "Mikhail Demidoff <demidoff.mikhail@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@trpc/client": "11.0.0-rc.660",
+    "@trpc/server": "11.0.0-rc.660",
+    "cors": "^2.8.5",
+    "pdf-parse": "^1.1.1",
+    "zod": "^3.24.1"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/node": "^22.10.2",
+    "@types/pdf-parse": "^1.1.4",
+    "dotenv": "^16.4.7",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.2"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
