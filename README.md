@@ -85,7 +85,7 @@ pnpm run client
 
 ### 1. Using Postman
 
-- _Endpoint_: **http://localhost:3301** **(default port)**
+- _Endpoint_: **http://localhost:3301/analyzeCandidate** **(default port)**
 - _Method_: **POST**
 - _Content-Type_: **multipart/form-data**
 - _Body_:
